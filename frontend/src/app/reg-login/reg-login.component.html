@@ -1,0 +1,341 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Smart job Logo" href="/src/app/jobs-logo.jpg">
+</div>
+<div style="text-align:center">
+    <div class="p-grid" >
+      <div class="p-col-12 p-md-6 p-lg-3">
+
+          <div class="p-grid" >
+            <div class="p-col-9" *ngIf="isRecruiter; else elseBlock"  > I am a Recruiter</div>
+
+
+            <ng-template #elseBlock  ><div class="p-col-9">I am a Candidate</div></ng-template>
+
+
+
+        <div  class="p-col-3"><p-inputSwitch [(ngModel)]="isRecruiter"  ></p-inputSwitch></div>
+      </div>
+
+      </div>
+      <div class="p-col-12 p-md-6 p-lg-3">
+
+          <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                  <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                  <input type="text" [(ngModel)]="email" pInputText placeholder="Email" required>
+              </div>
+          </div>
+      </div>
+
+      <div class="p-col-12 p-md-6 p-lg-3"><div class="ui-g-12 ui-md-4">
+          <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+              <input type="password" pPassword [(ngModel)]="password"  placeholder="Password"  required/>
+          </div>
+      </div>
+    </div>
+      <div class="p-col-12 p-md-6 p-lg-3">
+          <div class="p-grid">
+          <!-- <button class="p-col-6 p-md-6 p-lg-6" pButton type="button" label="Login" ></button> -->
+
+          <div *ngIf="isReg ;else loginButton"  > <p-button (onClick)="regUser()"   label="Register"></p-button></div>
+
+          <ng-template #loginButton  ><p-button (onClick)="loginUser()" label="Login" ></p-button> </ng-template >
+
+
+        </div>
+      </div>
+    </div>
+
+    <div >
+    <div class="p-grid">
+        <div class="p-col-12 p-md-6 p-lg-3">
+            <div class="p-grid">
+                <div class="p-col-9"  >Registration Form </div>
+
+                <div class="p-col-3 ">
+                    <p-inputSwitch [(ngModel)]="isReg"  ></p-inputSwitch>
+
+
+                </div>
+              </div>
+        </div>
+        <div *ngIf="isReg" class="p-col-12 p-md-6 p-lg-3">
+            <div class="ui-g-12 ui-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                    <input type="text"  [(ngModel)]="firstName" pInputText placeholder="First Name">
+                </div>
+            </div>
+          </div>
+
+          <div *ngIf="isReg"  class="p-col-12 p-md-6 p-lg-3">
+              <div class="ui-g-12 ui-md-4">
+                  <div class="ui-inputgroup">
+                      <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" pPassword [(ngModel)]="confirmPassword" required  placeholder="Confirm Password">
+                  </div>
+              </div>
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-3">
+              <!-- margin -->
+              </div>
+    </div>
+   <div *ngIf="isReg"  class="p-grid">
+      <div class="p-col-12 p-md-12 p-lg-12">
+    <div  class="p-grid">
+        <div class="p-col-12 p-md-6 p-lg-3">
+          <!-- margin -->
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-3">
+            <div class="ui-g-12 ui-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" pInputText [(ngModel)]="lastName" placeholder="Last Name">
+                </div>
+            </div>
+          </div>
+
+          <div class="p-col-12 p-md-6 p-lg-3">
+
+            </div>
+            <div class="p-col-12 p-md-6 p-lg-3">
+              <!-- margin -->
+              </div>
+    </div>
+
+
+
+
+
+  </div>
+  </div>
+
+  </div>
+
+  <p-toast key="myKey1" position="top-right"></p-toast>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <app-header-menu></app-header-menu> -->
+
+
+  </div>
+
+
+  <!--
+
+  <div [ngSwitch]="activeIndex">
+
+    <div style="background: red" *ngSwitchCase="0">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-5">
+        <div class="row">
+
+
+
+
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8">
+              <h1>Personal Info</h1>
+
+              <form action="/thankyou" method="get">
+                First name <input type="text"  name="firstname" placeholder="First Name" class="form-control"><br>
+                Last name <input class="form-control" type="text"   placeholder="LastName"><br>
+                Email <input type="text"  placeholder="Email" class="form-control"><br>
+                Address Line 1<br> <span><input type="input" class="form-control" cols="20" rows="10"  placeholder="Address Line 1"></span><br>
+                Address Line 2<br> <span><input type="input" class="form-control" cols="20" rows="10"  placeholder="Address Line 2"></span><br>
+                Address Line 3<br> <span><input type="input" class="form-control" cols="20" rows="10"  placeholder="Address Line 3"></span><br>
+                <br>
+                Phone Number <input class="form-control" type="text" style="margin-left: 200;" placeholder="Phone Number"><br>
+                Pin Code <input class="form-control" type="text" style="margin-left: 202;" placeholder="Pin Code"><br><br>
+
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+   </div>
+
+
+   <div style="background: red" *ngSwitchCase="1">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-5">
+        <div class="row">
+
+
+
+
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8">
+              <h1>Documents</h1>
+
+              <form action="/thankyou" method="get">
+                Resume <input type="file"  name="firstname" placeholder="First Name" class="form-control"><br>
+                Cover Letter <input class="form-control" type="file"   placeholder="LastName"><br>
+                Transcript <input type="file"  placeholder="Email" class="form-control"><br>
+
+
+
+                <br>
+               <br>
+
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+   </div>
+
+   <div style="background: red" *ngSwitchCase="2">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-5">
+        <div class="row">
+
+
+
+
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8">
+              <h1>Education</h1>
+
+              <form action="/thankyou" method="get">
+                University / College <input type="text"  name="firstname" placeholder="University" class="form-control"><br>
+                GPA <input class="form-control" type="number"   placeholder="GPA"><br>
+                Total GPA  <input type="number"   placeholder="Total GPA" class="form-control"><br>
+                Major <input type="text"   placeholder="Major" class="form-control"><br>
+                Stream <input type="text"   placeholder="Stream" class="form-control"><br>
+
+
+      <br>
+
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+   </div>
+
+   <div style="background: red" *ngSwitchCase="3">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-5">
+        <div class="row">
+
+
+
+
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8">
+              <h1>Experience</h1>
+
+              <form action="/thankyou" method="get">
+                Company <input type="text"  name="firstname" placeholder="Company" class="form-control"><br>
+                Role <input class="form-control" type="text"   placeholder="Role"><br>
+                Skills  <input type="text"   placeholder="please add all comma seperate skills" class="form-control"><br>
+                Experience  <input type="number"   placeholder="Years" class="form-control"><br>
+                Experience  <input type="number"   placeholder="Months" class="form-control"><br>
+                Stream <input type="text"   placeholder="Stream" class="form-control"><br>
+
+
+      <br>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+   </div>
+
+
+
+   <div style="background: red" *ngSwitchCase="5">
+
+      <div class="col-md-3"></div>
+      <div class="col-md-5">
+        <div class="row">
+
+
+
+
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8">
+              <h1>Terms and Conditions </h1>
+              <p>
+                  Because a Terms and Conditions agreement is the agreement where you inform the users of your website about the rules, terms and guidelines that they need to follow in order to use and access your website, a Terms and Conditions agreement has become extremely important.
+
+                  While it's not required by any laws currently (but third-parties such as Facebook may require it), through a Terms and Conditions you can maintain your rights to exclude certain users that may abuse your website or do not follow the rules you set
+              </p>
+
+                Accept <input type="radio" name="terms"  placeholder="Email" class="form-control"><br>
+                Decline <input type="radio" name="terms"   placeholder="Email" class="form-control"><br>
+
+                Submit <button   placeholder="Email" class="form-control">Submit Application</button><br>
+
+
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+  </div> -->

@@ -1,0 +1,86 @@
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <img width="300" alt="Smart job Logo" href="/src/app/jobs-logo.jpg">
+  </div>
+
+
+<div ></div>
+<div class="p-grid">
+
+  <div class = "p-col-12 p-md-6 p-lg-6" >
+
+
+  </div>
+</div>
+
+
+
+<div class="p-grid">
+
+    <div class = "p-col-12 p-md-6 p-lg-4" >
+
+
+
+  <div *ngFor="let job of viewAllJobsRes" class="p-grid">
+
+    <div class = "p-col-12 p-md-6 p-lg-1" >
+      {{job.jobId}}
+
+    </div>
+
+    <div class = "p-col-12 p-md-6 p-lg-7" >
+
+      {{job.jobTitle}}
+    </div>
+    <div class = "p-col-12 p-md-6 p-lg-2"  >
+
+      <button (click)="viewJobDesc(job.jobDescription )"  > View Description </button>
+    </div>
+    <div class = "p-col-12 p-md-6 p-lg-2" >
+        <button  (click)="applyJob(job.jobId)"  > Apply Job </button>
+    </div>
+  </div>
+
+
+  </div>
+
+  <div class = "p-col-12 p-md-6 p-lg-8" >
+    <div  class="p-grid">
+
+        <div class ="p-col-12 p-md-12 p-lg-6" >
+          <p>
+          {{selectedJobDesc}}
+          </p>
+          </div>
+
+          <div class ="p-col-12 p-md-12 p-lg-6" >
+            <div *ngFor="let appliedJob of appliedJobsRes" class = "p-grid">
+
+
+                    <div class = "p-col-12 p-md-6 p-lg-2" >
+                        {{appliedJob.jobId}}
+
+                    </div>
+
+                    <div class = "p-col-12 p-md-6 p-lg-10" >
+                        {{appliedJob.title}}
+
+                    </div>
+
+
+
+            </div>
+
+
+            </div>
+
+    </div>
+
+  </div>
+  </div>

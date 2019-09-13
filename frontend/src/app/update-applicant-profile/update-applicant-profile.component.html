@@ -1,0 +1,222 @@
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Smart job Logo" href="/src/app/jobs-logo.jpg">
+</div>
+
+<p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+
+<div [ngSwitch]="activeIndex">
+  <!-- the same view can be shown in more than one case -->
+  <div style="background: red" *ngSwitchCase="0">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <div class="row">
+
+
+
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-8">
+            <h1>Personal Info</h1>
+
+            <form action="/thankyou" method="get">
+              First name <input type="text" [(ngModel)]="firstName" name="firstname" placeholder="First Name" class="form-control"><br>
+              Last name <input class="form-control" [(ngModel)]="lastName" name="lastName" type="text"   placeholder="LastName"><br>
+              Email <input type="text" readonly="true" [(ngModel)]="email" name="email"  placeholder="Email" class="form-control"><br>
+              Address<br> <span><input type="input" [(ngModel)]="address" name="address" class="form-control" cols="20" rows="10"  placeholder="Address Line 1"></span><br>
+
+              <br>
+              Phone Number <input class="form-control" [(ngModel)]="phone" name="phone" type="text" style="margin-left: 200;" placeholder="Phone Number"><br>
+
+              <!-- <a href="/thankyou"><input class="btn-primary" type="submit" lable="Submit"></a> -->
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+      <!--default case when there are no matches -->
+ </div>
+
+
+ <div style="background: red" *ngSwitchCase="1">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <div class="row">
+
+
+
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-8">
+            <h1>Documents</h1>
+
+            <form action="/thankyou" >
+              Resume <input type="text" [(ngModel)]="resumeLink" name="resumeLink" placeholder="Please past path of resume file"   class="form-control"><br>
+
+                <!-- <button onclick="javascript:alert(document.myForm.path.value)"  ></button> -->
+
+
+              <br>
+             <br>
+              <!-- <a href="/thankyou"><input class="btn-primary" type="submit" lable="Submit"></a> -->
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+      <!--default case when there are no matches -->
+ </div>
+ <p-toast key="myKey2" position="top-right"></p-toast>
+
+
+ <div style="background: red" *ngSwitchCase="2">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <div class="row">
+
+
+
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-8">
+            <h1>Education</h1>
+
+            <form action="/thankyou" method="get">
+              University / College <input type="text" [(ngModel)]="uni"  name="uni" placeholder="University" class="form-control"><br>
+              GPA <input class="form-control" type="number" name="gpa"  [(ngModel)]="gpa"   placeholder="GPA"><br>
+              Total GPA  <input type="number"  name="totalGpa"  placeholder="Total GPA" [(ngModel)]="totalGpa"  class="form-control"><br>
+              Major <input type="text" name="major"  placeholder="Major" [(ngModel)]="major"  class="form-control"><br>
+              Stream <input type="text"  name="stream"  placeholder="Stream" [(ngModel)]="stream"  class="form-control"><br>
+
+
+    <br>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+ </div>
+
+ <div style="background: red" *ngSwitchCase="3">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <div class="row">
+
+
+
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-8">
+            <h1>Experience</h1>
+
+            <form action="/thankyou" method="get">
+              Company <input type="text"  name="firstname" [(ngModel)]="company"  placeholder="Company" class="form-control"><br>
+              Role <input class="form-control" type="text" [(ngModel)]="roleInCompany" name="roleInCompany"   placeholder="Role"><br>
+              Skills  <input type="text" [(ngModel)]="skills"  name= "skills"   placeholder="please add all comma seperate skills" class="form-control"><br>
+              Experience  <input type="number" [(ngModel)]="exp"  name= "exp"  placeholder="Years" class="form-control"><br>
+
+
+
+    <br>
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+ </div>
+
+
+
+ <div style="background: red" *ngSwitchCase="5">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-5">
+      <div class="row">
+
+
+
+
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-8">
+            <h1>Terms and Conditions </h1>
+
+            <p>
+              By clicking on update button you provide all rights to website Smart Resume to process your profile information.
+            </p>
+            <!-- <p>
+                Because a Terms and Conditions agreement is the agreement where you inform the users of your website about the rules, terms and guidelines that they need to follow in order to use and access your website, a Terms and Conditions agreement has become extremely important.
+
+                While it's not required by any laws currently (but third-parties such as Facebook may require it), through a Terms and Conditions you can maintain your rights to exclude certain users that may abuse your website or do not follow the rules you set
+            </p> -->
+
+
+
+              <p-radioButton name="groupname" value="val1" [(ngModel)]="selectedValue" ></p-radioButton> Accept <br><br>
+              <p-radioButton name="groupname" value="val2" [(ngModel)]="selectedValue" ></p-radioButton> Decline <br><br>
+              <div  *ngIf="selectedValue == 'val1' ; else disabledbutton" >
+              <button  (click)= "updateProfile()"  placeholder="Email" class="form-control">Update Profile</button><br>
+              <button  (click)= "viewJobs()"  placeholder="Email" class="form-control">View Jobs</button>
+            </div>
+            <ng-template #disabledbutton  ><div >
+                <button (click)= "updateProfile()"    placeholder="Email" disabled="true" class="form-control">Update Profile</button><br>
+                <button  (click)= "viewJobs()"   disabled="true"  placeholder="Email" class="form-control">View Jobs</button>
+              </div></ng-template>
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+      <!--default case when there are no matches -->
+ </div>
+</div>

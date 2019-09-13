@@ -1,0 +1,47 @@
+<div style="text-align:center">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Smart job Logo" href="/src/app/jobs-logo.jpg">
+</div>
+<div ></div>
+<div class="p-grid">
+
+  <div class = "p-col-12 p-md-6 p-lg-6" >
+
+
+  </div>
+</div>
+
+
+<div class="p-grid">
+
+  <div class = "p-col-12 p-md-6 p-lg-6" >
+
+      Job Title <input type="text" [(ngModel)]="jobTitle"  name="jobTitle" placeholder="Job Title" class="form-control"><br>
+      Job Description <textarea type="textarea" [(ngModel)]="jobDesc"  rows="4" cols="50" name="jobDesc" placeholder="Job Description" class="form-control"></textarea><br>
+
+      <div class="p-grid">
+
+        <div class = "p-col-12 p-md-6 p-lg-6" >
+
+
+
+      <div  *ngIf="jobTitle != 'emptyString'; else disabledbutton" >
+        <button  (click)= "addJob()"  placeholder="Email" name="addJob1" class="form-control">Add Job</button><br>
+      </div>
+      <ng-template #disabledbutton  ><div >
+          <button    placeholder="Email" #disabledbutton disabled="true" name="addjob"  class="form-control">Add Job</button><br>
+        </div></ng-template>
+      </div>
+      <div class = "p-col-12 p-md-6 p-lg-6" >
+
+        <button   (click)="navToAllJobs()"   name="viewAllJobs" class="form-control">View All Jobs</button><br>
+      </div>
+
+    </div>
+  </div>
+</div>
+<p-toast key="myKey3" position="top-right"></p-toast>
