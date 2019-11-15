@@ -46,7 +46,7 @@ class GetPDF:
             for statem in c :
                 self.points -= len([word for word in statem.split(' ') if word in self.avoidWords])
                 self.points += len([word for word in statem.split(' ') if word in self.usedWords])        
-        self.updateJson()
+#        self.updateJson()
         
     def updateJson(self):
         data = {}
@@ -61,10 +61,13 @@ class GetPDF:
         with open('result.txt', 'w') as js:
             json.dump(dt, js)
         
+        return dt
+        
 
 def Main():
     pdfPath = "Sample/sample4.pdf"    
     pdfObj = GetPDF(pdfPath)
+    print(pdfObj.updateJson())
     
 if __name__ == '__main__':
     Main()
